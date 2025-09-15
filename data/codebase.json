@@ -1,0 +1,62 @@
+{
+  "/README.md": {
+    "code": "## RockoAI Playground React App\n\n```\nimport { createBrowserRouter, RouterProvider } from \"react-router-dom\";\n\n// Views\nimport HomeView from \"./views/HomeView\";\nimport About from \"./views/AboutView\";\n\n// Get the base URL from environment variable (set by Vite config)\nconst baseUrl = import.meta.env.VITE_BASE_URL || \"/\";\n\n// Debug logging\nconsole.log(\"Base URL:\", baseUrl);\nconsole.log(\"Current pathname:\", window.location.pathname);\n\nconst router = createBrowserRouter(\n  [\n    {\n      path: \"/\",\n      element: <HomeView />,\n    },\n    {\n      path: \"/about\",\n      element: <About />,\n    },\n  ],\n  {\n    // Remove trailing slash for basename\n    basename: baseUrl.endsWith(\"/\") ? baseUrl.slice(0, -1) : baseUrl,\n  }\n);\n\nfunction App() {\n  return <RouterProvider router={router} />;\n}\n\nexport default App;\n```\n",
+    "readOnly": false,
+    "active": false,
+    "hidden": false
+  },
+  "/index.html": {
+    "code": "<!DOCTYPE html>\n<html lang=\"en\" class=\"dark\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/vite.svg\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>RockoAI - App</title>\n  </head>\n  <body>\n    <div id=\"root\"></div>\n    <script type=\"module\" src=\"/src/main.tsx\"></script>\n  </body>\n</html>\n",
+    "readOnly": false,
+    "active": false,
+    "hidden": false
+  },
+  "/package.json": {
+    "code": "{\n  \"name\": \"rockoai-playground\",\n  \"private\": true,\n  \"version\": \"0.0.0\",\n  \"type\": \"module\",\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"vite build\",\n    \"lint\": \"eslint .\",\n    \"preview\": \"vite preview\"\n  },\n  \"dependencies\": {\n    \"react\": \"^19.1.1\",\n    \"react-dom\": \"^19.1.1\",\n    \"react-router-dom\": \"^7.6.0\",\n    \"@tailwindcss/vite\": \"^4.1.6\",\n    \"tailwindcss\": \"^4.1.6\",\n    \"vite-plugin-vercel\": \"^9.0.7\"\n  },\n  \"devDependencies\": {\n    \"@eslint/js\": \"^9.33.0\",\n    \"@types/react\": \"^19.1.10\",\n    \"@types/react-dom\": \"^19.1.7\",\n    \"@vitejs/plugin-react\": \"^5.0.0\",\n    \"@vitejs/plugin-react-swc\": \"^4.0.1\",\n    \"eslint\": \"^9.33.0\",\n    \"eslint-plugin-react-hooks\": \"^5.2.0\",\n    \"eslint-plugin-react-refresh\": \"^0.4.20\",\n    \"globals\": \"^16.3.0\",\n    \"vite\": \"^7.1.2\"\n  }\n}\n",
+    "readOnly": false,
+    "active": false,
+    "hidden": false
+  },
+  "/public/vite.svg": {
+    "code": "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" aria-hidden=\"true\" role=\"img\" class=\"iconify iconify--logos\" width=\"31.88\" height=\"32\" preserveAspectRatio=\"xMidYMid meet\" viewBox=\"0 0 256 257\"><defs><linearGradient id=\"IconifyId1813088fe1fbc01fb466\" x1=\"-.828%\" x2=\"57.636%\" y1=\"7.652%\" y2=\"78.411%\"><stop offset=\"0%\" stop-color=\"#41D1FF\"></stop><stop offset=\"100%\" stop-color=\"#BD34FE\"></stop></linearGradient><linearGradient id=\"IconifyId1813088fe1fbc01fb467\" x1=\"43.376%\" x2=\"50.316%\" y1=\"2.242%\" y2=\"89.03%\"><stop offset=\"0%\" stop-color=\"#FFEA83\"></stop><stop offset=\"8.333%\" stop-color=\"#FFDD35\"></stop><stop offset=\"100%\" stop-color=\"#FFA800\"></stop></linearGradient></defs><path fill=\"url(#IconifyId1813088fe1fbc01fb466)\" d=\"M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z\"></path><path fill=\"url(#IconifyId1813088fe1fbc01fb467)\" d=\"M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z\"></path></svg>",
+    "readOnly": false,
+    "active": false,
+    "hidden": false
+  },
+  "/src/App.tsx": {
+    "code": "import { createBrowserRouter, RouterProvider } from \"react-router-dom\";\n\n// Views\nimport HomeView from \"./views/HomeView\";\nimport About from \"./views/AboutView\";\n\nconst router = createBrowserRouter([\n  {\n    path: \"/\",\n    element: <HomeView />,\n  },\n  {\n    path: \"/about\",\n    element: <About />,\n  },\n]);\n\nfunction App() {\n  return <RouterProvider router={router} />;\n}\n\nexport default App;\n",
+    "readOnly": false,
+    "active": false,
+    "hidden": false
+  },
+  "/src/index.css": {
+    "code": "@import url(\"https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap\");\n\n@import \"tailwindcss\";\n@custom-variant dark (&:where(.dark, .dark *));\n\n\n:root {\n  /* Light theme colors */\n  --background: #e9e9e9;\n  --foreground: #171717;\n  --card: #dadada;\n  --border: #e5e7eb;\n  --primary: #335eea;\n  --secondary: #5c97f6;\n  --info: #0ea5e9;\n  --success: #10b981;\n  --warning: #ffa913;\n  --danger: #f63737;\n  --muted: #5e5e5e;\n  --font-display: \"Poppins\", \"sans-serif\";\n  --font-body: \"Poppins\", \"sans-serif\";\n}\n\n\nhtml.dark {\n  /* Dark theme colors */\n  --background: #0a0a0a;\n  --foreground: #e9e9e9;\n  --card: #171717;\n  --border: #252525;\n  --muted: #b5b5b5;\n}\n\n@theme inline {\n  --color-background: var(--background);\n  --color-foreground: var(--foreground);\n  --color-card: var(--card);\n  --color-primary: var(--primary);\n  --color-secondary: var(--secondary);\n  --color-info: var(--info);\n  --color-success: var(--success);\n  --color-warning: var(--warning);\n  --color-danger: var(--danger);\n  --color-border: var(--border);\n  --color-muted: var(--muted);\n  --font-sans: var(--font-display);\n  --font-body: var(--font-body);\n}\n\nbody {\n  background: var(--background);\n  color: var(--foreground);\n  font-family: var(--font-body);\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-family: var(--font-display);\n}\n\n.border {\n  @apply border-border rounded-md;\n}",
+    "readOnly": false,
+    "active": false,
+    "hidden": false
+  },
+  "/src/main.tsx": {
+    "code": "import { StrictMode } from \"react\";\nimport { createRoot } from \"react-dom/client\";\nimport \"./index.css\";\nimport App from \"./App.tsx\";\n\ncreateRoot(document.getElementById(\"root\")!).render(\n  <StrictMode>\n    <App />\n  </StrictMode>\n);\n",
+    "readOnly": false,
+    "active": false,
+    "hidden": false
+  },
+  "/src/views/AboutView.tsx": {
+    "code": "import React from \"react\";\nimport { Link } from \"react-router-dom\";\n\nconst About: React.FC = () => {\n  return (\n    <div className=\"min-h-screen flex flex-col items-center justify-center p-4\">\n      <h1 className=\"text-4xl font-bold mb-8 text-center\">About</h1>\n      <Link to=\"/\" className=\"px-3 py-2 rounded-md text-sm font-medium text-primary\">\n        Home\n      </Link>\n\n      <p className=\"mt-8 text-muted text-center\">Edit src/views/About.vue</p>\n\n      <div className=\"w-full max-w-md mx-auto text-center border-t border-border mt-8 pt-8 text-muted\">Powered by RockoAI</div>\n    </div>\n  );\n};\n\nexport default About;\n",
+    "readOnly": false,
+    "active": false,
+    "hidden": false
+  },
+  "/src/views/HomeView.tsx": {
+    "code": "import React from \"react\";\nimport { Link } from \"react-router-dom\";\n\nconst HomeView: React.FC = () => {\n  return (\n    <div className=\"min-h-screen flex flex-col items-center justify-center p-4\">\n      <h1 className=\"text-4xl font-bold mb-8 text-center\">React + TypeScript + Tailwind</h1>\n      <Link to=\"/about\" className=\"px-3 py-2 rounded-md text-sm font-medium text-primary\">\n        Go to About\n      </Link>\n\n      <p className=\"mt-8 text-muted text-center\">Edit src/views/HomeView.vue</p>\n\n      <div className=\"w-full max-w-md mx-auto text-center border-t border-border mt-8 pt-8 text-muted\">Powered by RockoAI</div>\n    </div>\n  );\n};\n\nexport default HomeView;\n",
+    "readOnly": false,
+    "active": false,
+    "hidden": false
+  },
+  "/src/vite-env.d.ts": {
+    "code": "/// <reference types=\"vite/client\" />\n",
+    "readOnly": false,
+    "active": false,
+    "hidden": false
+  }
+}
