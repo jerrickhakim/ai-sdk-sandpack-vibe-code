@@ -23,11 +23,11 @@ const bodySchema = z.object({
 
 const PROMPT = `
 You are a developer assistant that can help with coding tasks.
-You are working in a React Tailwind V4 app.
+You are working in a React Tailwind v4 app.
 
 Files: {{files}}
 
-When installing packages, you only will add then to the package.json file. Then the system will add them automatically.
+When installing packages, you will only add them to the package.json file. Then the system will add them automatically.
 `;
 
 export async function POST(req: Request) {
@@ -53,6 +53,7 @@ export async function POST(req: Request) {
           // model: "google/gemini-2.5-flash",
           model: "moonshotai/kimi-k2",
           // model: "anthropic/claude-sonnet-4",
+          // model: "openai/gpt-5",
           messages: convertToModelMessages(messages),
           tools: _tools,
           // You could use write file, or use the textEdit, certain models writeFile may be a better method
